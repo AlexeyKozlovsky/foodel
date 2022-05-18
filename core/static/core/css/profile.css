@@ -1,0 +1,140 @@
+body {
+    overflow: hidden;
+}
+
+.page-container {
+    overflow-y: scroll;
+    height: calc(100vh - 90px);
+    scroll-snap-type: y mandatory;
+}
+
+.full-page-section {
+    display: block;
+    height: calc(100vh - 90px);
+    scroll-snap-align: start;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6rem;
+}
+
+.profile-data-block {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.profile-avatar {
+    width: 350px;
+    height: 350px;
+}
+
+
+.data-table-col {
+    font-size: 1.5rem;
+    vertical-align: top;
+}
+
+.data-table-col-key {
+    display: table-cell;
+    white-space: normal;
+    font-weight: 400;
+    padding-right: 5rem;
+}
+
+.data-table-col-value {
+    font-weight: 300;
+    text-align: right;
+}
+
+.data-table {
+    margin-left: 4rem;
+}
+
+
+.data-table td {
+    padding-bottom: 2rem;
+}
+
+
+
+.title-panel {
+    display: inline;
+}
+
+
+.name-title {
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.status {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: right;
+}
+
+.deposit-button {
+    margin-right: 0;
+    margin-top: -1rem;
+}
+
+.address-value {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.btn-profile-edit {
+    margin-bottom: 0.5rem;
+    margin-top: 0rem;
+}
+
+
+.link {
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s linear all;
+}
+
+.link:hover {
+    font-size: 1.6rem;
+}
+
+.last-orders-section {
+    position: relative;
+    background: #000;
+}
+
+.orders-title {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    padding-top: 65px;
+}
+
+.food-svg-1 {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 287px;
+    height: 223px;
+}
+
+.food-svg-2 {
+    position: absolute;
+    bottom: 35px;
+    left: 15px;
+    width: 329px;
+    height: 323px;
+}

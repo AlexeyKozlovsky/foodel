@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="navbar">
+    <a href="{% url 'core:home' %}" class="logo"><img src="{% static 'core/images/logo.svg' %}" alt="logo"></a>
+    <ul>
+        <li class="nav-item"><a href="{% url 'core:clients' %}" class="nav-link">Наши клиенты</a></li>
+        <li class="nav-item"><a href="{% url 'core:partners' %}" class="nav-link">Наши партнеры</a></li>
+
+        <li class="nav-item nav-item-end"><a href="{% url 'core:login' %}" class="nav-link">Войти</a></li>
+    </ul>
+</div>

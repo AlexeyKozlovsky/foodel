@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
+
+* {
+    font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+    font-weight: 200;
+    /*overflow: hidden;*/
+    scrollbar-width: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.btn {
+    /*display: inline-block;*/
+    display: block;
+    margin: 1rem auto auto auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    letter-spacing: 0.115rem;
+
+    border-radius: 2px;
+    min-height: 40px;
+
+    padding: 5px 15px 5px 15px;
+    transition: background 0.3s linear,
+                color 0.3s linear;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #000;
+    color: #fff;
+    border: 1px solid black;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background: #CDCDCD;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #2A7E99;
+    text-decoration: underline;
+    transition: all 0.3s linear;
+    border: none;
+}
+
+.btn-secondary:hover {
+    font-size: 1.55rem;
+    color: #0c5460;
+}
+
+.page-container {
+    position: relative;
+    height: calc(100vh - 90px);
+    overflow: scroll;
+}
+
+.input-primary {
+    display: block;
+    margin: auto;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);;
+    /*transition: border 0.5s ease;*/
+    font-size: 1.5rem;
+    text-align: end;
+    padding-right: .5rem;
+    min-width: 550px;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+
+    filter: unset !important;
+}
+
+.input-primary::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 300;
+}
+
+.input-primary:focus {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+.little-desc {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 400px;
+}
+
+
+.first-page {
+    background: black;
+}
+
+.first-page-title {
+    color: #e3e3e3;
+    font-size: 4rem;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 11px;
+}
+
+.first-page-logo {
+    display: block;
+    width: 280px;
+    height: 270px;
+    margin: 115px auto auto auto;
+}
+
+.first-page-bottom-text {
+    position: absolute;
+    width: 100vw;
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    bottom: 50px;
+}
+
+.last-client-item .all-clients-link {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 130px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    bottom: 0;
+    text-align: center;
+    vertical-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.46rem;
+
+    transition: all .3s linear;
+}
+
+.all-clients-link p {
+    vertical-align: middle;
+    margin: auto;
+}
+
+.all-clients-link:hover {
+    height: 150px;
+    font-size: 3.5rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 1);
+}
+

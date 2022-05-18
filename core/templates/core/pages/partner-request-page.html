@@ -1,0 +1,87 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block include_links %}
+    <link rel="stylesheet" href="{% static 'core/css/request.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="request-header">Оформление заявки партнера</h1>
+    <form action="{% url 'core:client-request' %}" class="form-container" method="post">
+        {% csrf_token %}
+        <div class="data-block">
+            <h1 class="data-block-header">Контактные данные</h1>
+            <div class="data-block-container personal-data-container">
+                {{ form.email.errors }}
+                {{ form.email}}
+                {{ form.phone.errors }}
+                {{ form.phone }}
+                {{ form.first_name.errors  }}
+                {{ form.first_name }}
+                {{ form.last_name.errors  }}
+                {{ form.last_name }}
+
+                <p class="little-desc data-block-desc contact-data-desc">
+                    Будьте внимательны, заполняя данные поля.
+                    По этим данным с вами свяжутся после обработки заявки
+                </p>
+            </div>
+        </div>
+
+        <div class="data-block">
+            <h1 class="data-block-header">Данные о компании</h1>
+            {% if form.img.errors %}
+                <p class="error-desc">Прикреплено некорректное изображение</p>
+            {% endif %}
+            {% if form.address.errors %}
+                <p class="error-desc">Адрес введен некорректно</p>
+            {% endif %}
+            <div class="data-block-container company-data-container">
+                {{ form.name }}
+                {{ form.desc }}
+                {{ form.img }}
+                <label class="img-input-label data-block-input" for="img-input">Добавить фотографию</label>
+                {{ form.address }}
+                {{ form.categories }}
+
+                <p class="little-desc data-block-desc company-data-block-desc-1">
+                    Описание, название и фотография будут служить для  отображения вашей компании
+                </p>
+
+                <p class="little-desc data-block-desc company-data-block-desc-2">
+                    Указывайте адрес головного офиса компании.
+                    Далее, после принятия заявки можно будет добавить адреса остальных офисов
+                </p>
+            </div>
+        </div>
+
+
+        <div class="data-block">
+            <h1 class="data-block-header">Данные о счете</h1>
+            {% if form.account_num.errors %}
+                <p class="error-desc">Номер счета введен некорректно</p>
+            {% endif %}
+            {% if form.corr_account_num.errors %}
+                <p class="error-desc">Номер корр. счета введен некорректно</p>
+            {% endif %}
+            {% if form.TIN_num.errors %}
+                <p class="error-desc">ИНН введен некорректно</p>
+            {% endif %}
+            <div class="data-block-container account-data-block-container">
+                {{ form.account_num }}
+                {{ form.bank }}
+                {{ form.corr_account_num }}
+                {{ form.TIN_num }}
+
+                <p class="little-desc data-block-desc account-block-desc">
+                    Указывайте данные счета, с которого будет производиться оплата услуг нашего сервиса
+                </p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary send-btn">Отправить</button>
+    </form>
+
+{% endblock %}

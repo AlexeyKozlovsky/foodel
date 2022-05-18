@@ -1,0 +1,95 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block include_links %}
+    <link type="text/css" rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="page-body">
+    <div class="clients-container">
+        <div class="client-item first-page">
+            <h1 class="first-page-title">Доставка еды прямо в офис</h1>
+            <img src="{% static 'core/images/logo.svg' %}" alt="logo" class="first-page-logo">
+            <p class="first-page-bottom-text">Листай дальше и мы расскажем про наших клиентов</p>
+        </div>
+        {% for main_company in main_companies %}
+            {% if forloop.last %}
+                <div class="client-item last-client-item">
+            {% else %}
+                <div class="client-item">
+            {% endif %}
+                <img src="{{ main_company.img.url }}" alt="{{ main_company.slug }}_img" class="client-item-background">
+                <div class="client-info">
+                    <div class="client-title">{{ main_company.name }}</div>
+                    <p class="client-description">{{ main_company.description }}</p>
+                </div>
+
+                {% if forloop.last %}
+                   <div class="all-clients-link" onclick="location.href = {% url 'core:clients' %}">
+                    <p>Ещё клиенты</p>
+                   </div>
+                {% endif %}
+            </div>
+
+
+        {% endfor %}
+
+        <div class="client-item request-page">
+            <h1 class="request-page-title">Подай заявку</h1>
+            <p class="request-page-title-description">чтобы стать нашим клиентом</p>
+
+            <div class="args-container">
+                <div class="arg-item">
+                    <p>Улучши атмосферу в коллективе</p>
+                </div>
+                <div class="arg-item">
+                    <p>Не переплачивай</p>
+                </div>
+                <div class="arg-item">
+                    <p>Поднимай статус</p>
+                </div>
+            </div>
+
+            <button class="btn btn-primary request-btn" onclick="location.href = '{% url 'core:client-request' %}'">Оставить заявку</button>
+
+            <img src="{% static 'core/images/handshake.png' %}" alt="handshake" class="cartoon handshake-cartoon">
+            <img src="{% static 'core/images/joy.png' %}" alt="cartoon" class="cartoon joy-cartoon">
+
+
+        </div>
+
+        <div class="client-item contact-page">
+            <div class="contact-title-block">
+                <h1 class="contact-title">Остались вопросы?</h1>
+                <p class="contact-title-description">Свяжитесь с нами</p>
+
+            </div>
+
+            <table class="contact-table">
+                <tr><td class="tcol label-col">Почта для связи</td><td class="tcol value-col">foodel@ya.ru</td></tr>
+                <tr><td class="tcol label-col">Телефон</td><td class="tcol value-col">8 (999) 123 45 67</td></tr>
+            </table>
+
+            <div class="contact-footer">
+                <div class="logo-footer-block">
+                    <img src="{% static 'core/images/logo.svg' %}" alt="logo" class="footer-logo">
+                </div>
+                <div class="desc-footer-block">
+                    <h3 class="footer-company-name">ООО “Foodel” (Фудэл)</h3>
+                    <p class="footer-address">г. Дубна, ул. Университетская д.19</p>
+                </div>
+
+            </div>
+            <img src="{% static 'core/images/phone.png' %}" alt="phone" class="cartoon cartoon-phone">
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block include_scripts %}
+    <script src="{% static 'core/js/reveal-script.js' %}"></script>
+{% endblock %}

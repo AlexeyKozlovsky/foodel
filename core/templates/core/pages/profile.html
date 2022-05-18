@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block include_links %}
+    <link type="text/css" rel="stylesheet" href="{% static 'core/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if user_type == 'Employee' %}
+        {% include 'core/pages/emp_profile.html' %}
+    {% elif user_type == 'Businessman' %}
+        {% include 'core/pages/businessman_profile.html' %}
+    {% elif user_type == 'Courier' %}
+        {% include 'core/pages/courier_profile.html' %}
+    {% endif %}
+{% endblock %}

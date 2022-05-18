@@ -1,0 +1,65 @@
+{% load static %}
+
+<section class="full-page-section profile-section">
+    <div class="profile-container">
+        <div class="profile-left-block">
+            <img src="{{ user.img.url }}" alt="" class="profile-avatar">
+            <button class="btn btn-primary btn-profile-edit">Редактировать профиль</button>
+            <button class="btn btn-primary btn-profile-edit">Настроить рассписание</button>
+        </div>
+
+        <div class="profile-data-block">
+            <div class="title-panel">
+                <h2 class="name-title">{{ user.first_name }} {{ user.last_name }}</h2>
+                <p class="status">Lorem ipsum dolor sit.</p>
+            </div>
+
+            <table class="data-table">
+                <tbody>
+                    <tr>
+                        <td class="data-table-col data-table-col-key">Место работы</td>
+                        <td class="data-table-col data-table-col-value">
+                            <a href="#" class="link">{{ emp.company.name }}</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="data-table-col data-table-col-key">Средства на месяц</td>
+                        <td class="data-table-col data-table-col-value">{{ emp.monthly_money }} руб.</td>
+                    </tr>
+
+                    <tr>
+                        <td class="data-table-col data-table-col-key">Остаток на счету</td>
+                        <td class="data-table-col data-table-col-value">{{ emp.money }} руб.</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button class="btn btn-secondary deposit-button">Пополнить</button></td>
+                    </tr>
+
+                    <tr>
+                        <td class="data-table-col data-table-col-key">Адреса</td>
+                        <td class="data-table-col data-table-col-value data-table-col-big">
+                            {% for address_data in addresses %}
+                                <p class="address-value">{{ address_data }}</p>
+                            {% endfor %}
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button class="btn btn-secondary deposit-button">Добавить</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="full-page-section last-orders-section">
+    <h1 class="orders-title">Последние заказы</h1>
+    <img src="{% static 'core/images/food1.png' %}" alt="food 1" class="food-svg-1">
+    <img src="{% static 'core/images/food2.png' %}" alt="food 2" class="food-svg-2">
+</section>

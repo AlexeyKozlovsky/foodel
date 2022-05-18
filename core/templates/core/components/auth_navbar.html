@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="navbar">
+    <a href="{% url 'core:home' %}" class="logo"><img src="{% static 'core/images/logo.svg' %}" alt="logo"></a>
+    <ul>
+        <li class="nav-item"><a href="{% url 'core:food' %}" class="nav-link">Сделать заказ</a></li>
+    </ul>
+
+    <ul class="nav-item-end">
+        <li class="nav-item"><a href="{% url 'core:profile' %}" class="nav-link">{{ user.first_name }} {{ user.last_name }}</a></li>
+        <li class="nav-item"><a href="{% url 'core:logout' %}" class="nav-link">Выйти</a></li>
+    </ul>
+</div>

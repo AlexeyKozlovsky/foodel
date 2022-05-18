@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+{% load static %}
+}
+
+{% block include_links %}
+    <link rel="stylesheet" href="{% static 'core/css/food.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <img src="{% static 'core/images/food-background.jpg' %}" alt="" class="main-background">
+
+<div class="food-navbar">
+    <ul>
+        {% for category in categories %}
+            {% if forloop.counter == selected_category %}
+                <li class="active-li"><a href="#">{{ category.name }}</a></li>
+            {% else %}
+                <li><a href="#">{{ category.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<div class="main-good-container">
+
+
+    <div class="main-good-container-body infinite-container">
+        {% for good in goods %}
+            <div class="food-card infinite-item">
+                <img src="{{ good.good.img.url }}" alt="" class="food-card-background">
+                <div class="card-body">
+                     <div class="food-card-desc">
+                    <h1 class="food-card-title">{{ good.good.name }}</h1>
+                    <p class="food-price">{{ good.good_servings.first.price | floatformat:0 }} ₽</p>
+                </div>
+                <div class="detail-food-desc">
+                    <div class="detail-food-desc-values-container">
+                        <div class="detail-food-desc-item">
+                            <div class="detail-food-desc-item-key">Белки</div>
+                            <div class="detail-food-desc-item-value">{{ good.good.proteins | floatformat:0 }}</div>
+                            <div class="detail-food-desc-item-unit">грамм</div>
+                        </div>
+
+                        <div class="detail-food-desc-item">
+                            <div class="detail-food-desc-item-key">Углеводы</div>
+                            <div class="detail-food-desc-item-value">{{ good.good.carbohydrates | floatformat:0 }}</div>
+                            <div class="detail-food-desc-item-unit">грамм</div>
+                        </div>
+
+                        <div class="detail-food-desc-item">
+                            <div class="detail-food-desc-item-key">Жиры</div>
+                            <div class="detail-food-desc-item-value">{{ good.good.fats | floatformat:0 }}</div>
+                            <div class="detail-food-desc-item-unit">грамм</div>
+                        </div>
+
+                        <div class="detail-food-desc-item calories-item-container">
+                            <div class="detail-food-desc-item-key">Калорийность</div>
+                            <div class="detail-food-desc-item-value">{{ good.good.calories | floatformat:0 }}</div>
+                            <div class="detail-food-desc-item-unit">ккал</div>
+                        </div>
+                    </div>
+
+                    <div class="detail-food-desc-serving-container">
+                        {% for serving in good.good_servings.all %}
+                            <div class="serving-item">
+                                {{ serving.caption }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        {% endfor %}
+        
+
+    </div>
+        {% if goods.has_next %}
+            <a href="?page={{ goods.next_page_number }}" class="infinite-more-link"></a>
+        {% endif %}
+</div>
+{% endblock %}
+
+{% block include_scripts %}
+    <script src="{% static 'core/js/card-script.js' %}"></script>
+    <script src="{% static 'core/js/jquery.waypoints.js' %}"></script>
+    <script src="{% static 'core/js/infinite.min.js' %}"></script>
+    <script src="{% static 'core/js/infinite-food-scroll.js' %}"></script>
+
+{% endblock %}

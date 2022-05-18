@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block include_links %}
+    <link rel="stylesheet" href="{% static 'core/css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="login-container">
+        <h1 class="title">Авторизация</h1>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="fieldWrapper">
+                {{ form.username.errors }}
+                {{ form.username }}
+            </div>
+
+            <div class="fieldWrapper">
+                {{ form.password.errors }}
+                {{ form.password }}
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary login-btn">Войти</button>
+                <button class="btn btn-secondary" onclick="location.href = '{% url 'core:client-request' %}'">Подать заявку</button>
+                <p class="little-desc">
+                    Если у вас нет аккаунта, запросите его у вашего работодателя.
+                    Если компания, которую вы представляете не входит в число наших
+                    клиентов, подайте заявку и мы с вами свяжемся
+                </p>
+            </div>
+
+
+            <p class="little_desc"></p>
+        </form>
+    </div>
+
+{% endblock %}
